@@ -1,0 +1,114 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Passé Composé Challenge</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f7f7f7;
+      padding: 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+    .question {
+      background: white;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    .question h2 {
+      font-size: 1.2em;
+    }
+    button {
+      display: block;
+      margin: 10px 0;
+      padding: 10px;
+      width: 100%;
+      border: none;
+      border-radius: 8px;
+      background-color: #007BFF;
+      color: white;
+      font-size: 1em;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .correct {
+      background-color: #28a745 !important;
+    }
+    .incorrect {
+      background-color: #dc3545 !important;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎓 Passé Composé Challenge</h1>
+  <div id="quiz"></div>
+
+  <script>
+    const questions = [
+      {
+        q: "Que veut dire 'J’ai mangé une pomme' ?",
+        options: ["I ate an apple", "I ate a banana", "I bought an apple", "I am eating an apple"],
+        answer: 0
+      },
+      {
+        q: "Comment dit-on 'He played' en français ?",
+        options: ["Il a joué", "Il joue", "Il va jouer", "Il a jouer"],
+        answer: 0
+      },
+      {
+        q: "Quel est le participe passé du verbe 'regarder' ?",
+        options: ["regardé", "regarde", "regardons", "regardait"],
+        answer: 0
+      },
+      {
+        q: "Tu as visité Paris. Que veut dire cette phrase ?",
+        options: ["You visit Paris", "You have visited Paris", "You will visit Paris", "You are visiting Paris"],
+        answer: 1
+      },
+      {
+        q: "Quel auxiliaire utilise-t-on avec 'joué' ?",
+        options: ["être", "avoir", "faire", "aller"],
+        answer: 1
+      },
+      {
+        q: "Complète : Nous ________ (avoir + finir) le travail.",
+        options: ["avons finir", "avons fini", "avons finissons", "avons finies"],
+        answer: 1
+      }
+    ];
+
+    const quizContainer = document.getElementById("quiz");
+
+    questions.forEach((q, i) => {
+      const div = document.createElement("div");
+      div.className = "question";
+      div.innerHTML = `<h2>Q${i+1}. ${q.q}</h2>`;
+
+      q.options.forEach((opt, index) => {
+        const btn = document.createElement("button");
+        btn.textContent = opt;
+        btn.onclick = () => {
+          const allButtons = div.querySelectorAll("button");
+          allButtons.forEach(b => b.disabled = true);
+
+          if (index === q.answer) {
+            btn.classList.add("correct");
+          } else {
+            btn.classList.add("incorrect");
+            allButtons[q.answer].classList.add("correct");
+          }
+        };
+        div.appendChild(btn);
+      });
+
+      quizContainer.appendChild(div);
+    });
+  </script>
+</body>
+</html>
