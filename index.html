@@ -74,31 +74,41 @@
   </style>
 </head>
 <body>
-  <h1>🎓 Jeu de Révision : Français (4e à 8e année)</h1>
+  <h1>📚 Jeu de Révision : Français</h1>
   <div class="quiz-container" id="quiz-container"></div>
 
   <script>
     const questions = [
-      {
-        question: "Comment dit-on 'I wanted' en français ?",
-        answers: ["j’ai pu", "j’ai voulu", "j’ai mangé", "j’ai couru"],
-        correct: 1
-      },
-      {
-        question: "Que veut dire 'j’ai apporté un appareil photo' en anglais ?",
-        answers: ["I packed a book", "I packed sunscreen", "I packed a camera", "I bought a photo"],
-        correct: 2
-      },
-      {
-        question: "De quelle couleur est un autobus scolaire ?",
-        answers: ["Bleu", "Rouge", "Noir", "Jaune"],
-        correct: 3
-      },
-      {
-        question: "Quelle est la date de la fête du Canada ?",
-        answers: ["Le 1e juin", "Le 1e juillet", "Le 4 juillet", "Le 4 août"],
-        correct: 1
-      }
+      { question: "Comment dit-on 'I wanted' en français ?", answers: ["j’ai pu", "j’ai voulu", "j’ai mangé", "j’ai couru"], correct: 1 },
+      { question: "Que veut dire 'j’ai apporté un appareil photo' en anglais ?", answers: ["I packed a book", "I packed sunscreen", "I packed a camera", "I bought a photo"], correct: 2 },
+      { question: "De quelle couleur est un autobus scolaire ?", answers: ["Bleu", "Rouge", "Noir", "Jaune"], correct: 3 },
+      { question: "Quelle est la date de la fête du Canada ?", answers: ["Le 1e juin", "Le 1e juillet", "Le 4 juillet", "Le 4 août"], correct: 1 },
+      { question: "Quel est le contraire de 'chaud' ?", answers: ["rapide", "grand", "froid", "long"], correct: 2 },
+      { question: "Quelle saison vient après l’hiver ?", answers: ["L’automne", "Le printemps", "L’été", "Le jeudi"], correct: 1 },
+      { question: "Combien font 12 + 8 ?", answers: ["18", "20", "21", "19"], correct: 1 },
+      { question: "Comment dit-on 'shirt' en français ?", answers: ["pantalon", "jupe", "chemise", "chapeau"], correct: 2 },
+      { question: "Quel mois vient avant décembre ?", answers: ["janvier", "octobre", "novembre", "mars"], correct: 2 },
+      { question: "Quel verbe est au passé composé : 'j’ai joué' ?", answers: ["Infinitif", "Présent", "Passé composé", "Futur"], correct: 2 },
+      { question: "Comment écrit-on 'February' en français ?", answers: ["février", "févrière", "janvier", "mars"], correct: 0 },
+      { question: "Quel est le verbe 'être' à la 1re personne ?", answers: ["es", "suis", "est", "êtes"], correct: 1 },
+      { question: "Comment dit-on 'It is raining' en français ?", answers: ["Il neige", "Il pleut", "Il fait chaud", "Il vente"], correct: 1 },
+      { question: "Que veut dire 'je vais aller' ?", answers: ["I go", "I will go", "I went", "I want"], correct: 1 },
+      { question: "Comment dit-on 'green' en français ?", answers: ["jaune", "rouge", "vert", "bleu"], correct: 2 },
+      { question: "Quel verbe est au futur proche ?", answers: ["je mange", "j’ai mangé", "je vais manger", "je mangerai"], correct: 2 },
+      { question: "Qu’est-ce que c’est ? 🍎", answers: ["une banane", "une pomme", "une fraise", "un citron"], correct: 1 },
+      { question: "Comment dit-on 'They have' en français ?", answers: ["Ils sont", "Ils vont", "Ils ont", "Ils font"], correct: 2 },
+      { question: "Comment écrit-on 'Wednesday' en français ?", answers: ["vendredi", "mardi", "jeudi", "mercredi"], correct: 3 },
+      { question: "Quelle est la saison des feuilles rouges ?", answers: ["printemps", "été", "automne", "hiver"], correct: 2 },
+      { question: "Quel verbe n’est PAS un verbe -er ?", answers: ["finir", "jouer", "chanter", "marcher"], correct: 0 },
+      { question: "Quelle est la bonne conjugaison de 'faire' (tu) ?", answers: ["fais", "fait", "faisons", "faisez"], correct: 0 },
+      { question: "Quel mot signifie 'school bag' ?", answers: ["cartable", "bureau", "table", "livre"], correct: 0 },
+      { question: "Comment dit-on 'I am going to read' en français ?", answers: ["je vais lire", "je lis", "j’ai lu", "je lirai"], correct: 0 },
+      { question: "Comment s'appelle le mois après avril ?", answers: ["mars", "mai", "juin", "juillet"], correct: 1 },
+      { question: "Quel est un synonyme de 'fatigué' ?", answers: ["malade", "endormi", "content", "heureux"], correct: 1 },
+      { question: "Combien font 10 + 15 ?", answers: ["20", "24", "25", "22"], correct: 2 },
+      { question: "Quel est le pluriel de 'le cahier' ?", answers: ["les cahiers", "les cahier", "le cahiers", "la cahier"], correct: 0 },
+      { question: "Quel verbe est conjugué correctement ?", answers: ["tu mangons", "je mange", "nous manges", "ils mangentons"], correct: 1 },
+      { question: "Quel temps est-ce ? ☀️", answers: ["Il fait chaud", "Il neige", "Il pleut", "Il vente"], correct: 0 }
     ];
 
     const container = document.getElementById("quiz-container");
