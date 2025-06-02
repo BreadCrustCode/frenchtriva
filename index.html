@@ -1,113 +1,131 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Passé Composé Challenge</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jeu de Révision - Français</title>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f7f7f7;
-      padding: 20px;
-      max-width: 800px;
-      margin: auto;
+      font-family: 'Nunito', sans-serif;
+      background: linear-gradient(120deg, #a6c0fe 0%, #f68084 100%);
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
     }
-    .question {
-      background: white;
-      border-radius: 10px;
-      padding: 20px;
-      margin-bottom: 20px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-    }
-    .question h2 {
-      font-size: 1.2em;
-    }
-    button {
-      display: block;
-      margin: 10px 0;
-      padding: 10px;
-      width: 100%;
-      border: none;
-      border-radius: 8px;
-      background-color: #007BFF;
+
+    h1 {
       color: white;
-      font-size: 1em;
+      margin: 40px 0 20px;
+      text-align: center;
+      font-size: 2.5rem;
+    }
+
+    .quiz-container {
+      width: 95%;
+      max-width: 800px;
+      background: #fff;
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      margin-bottom: 40px;
+    }
+
+    .question-box {
+      margin-bottom: 30px;
+    }
+
+    .question-box h2 {
+      font-size: 1.3rem;
+      color: #333;
+    }
+
+    .question-box button {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      margin: 8px 0;
+      font-size: 1rem;
+      border: 2px solid #ddd;
+      border-radius: 12px;
       cursor: pointer;
+      transition: all 0.3s ease;
+      background-color: #f9f9f9;
     }
-    button:hover {
-      background-color: #0056b3;
+
+    .question-box button:hover {
+      background-color: #eef;
     }
+
     .correct {
-      background-color: #28a745 !important;
+      background-color: #a5d6a7 !important;
+      border-color: #388e3c !important;
+      color: #1b5e20;
     }
+
     .incorrect {
-      background-color: #dc3545 !important;
+      background-color: #ef9a9a !important;
+      border-color: #c62828 !important;
+      color: #b71c1c;
     }
   </style>
 </head>
 <body>
-  <h1>🎓 Passé Composé Challenge</h1>
-  <div id="quiz"></div>
+  <h1>🎓 Jeu de Révision : Français (4e à 8e année)</h1>
+  <div class="quiz-container" id="quiz-container"></div>
 
   <script>
     const questions = [
       {
-        q: "Que veut dire 'J’ai mangé une pomme' ?",
-        options: ["I ate an apple", "I ate a banana", "I bought an apple", "I am eating an apple"],
-        answer: 0
+        question: "Comment dit-on 'I wanted' en français ?",
+        answers: ["j’ai pu", "j’ai voulu", "j’ai mangé", "j’ai couru"],
+        correct: 1
       },
       {
-        q: "Comment dit-on 'He played' en français ?",
-        options: ["Il a joué", "Il joue", "Il va jouer", "Il a jouer"],
-        answer: 0
+        question: "Que veut dire 'j’ai apporté un appareil photo' en anglais ?",
+        answers: ["I packed a book", "I packed sunscreen", "I packed a camera", "I bought a photo"],
+        correct: 2
       },
       {
-        q: "Quel est le participe passé du verbe 'regarder' ?",
-        options: ["regardé", "regarde", "regardons", "regardait"],
-        answer: 0
+        question: "De quelle couleur est un autobus scolaire ?",
+        answers: ["Bleu", "Rouge", "Noir", "Jaune"],
+        correct: 3
       },
       {
-        q: "Tu as visité Paris. Que veut dire cette phrase ?",
-        options: ["You visit Paris", "You have visited Paris", "You will visit Paris", "You are visiting Paris"],
-        answer: 1
-      },
-      {
-        q: "Quel auxiliaire utilise-t-on avec 'joué' ?",
-        options: ["être", "avoir", "faire", "aller"],
-        answer: 1
-      },
-      {
-        q: "Complète : Nous ________ (avoir + finir) le travail.",
-        options: ["avons finir", "avons fini", "avons finissons", "avons finies"],
-        answer: 1
+        question: "Quelle est la date de la fête du Canada ?",
+        answers: ["Le 1e juin", "Le 1e juillet", "Le 4 juillet", "Le 4 août"],
+        correct: 1
       }
     ];
 
-    const quizContainer = document.getElementById("quiz");
+    const container = document.getElementById("quiz-container");
 
     questions.forEach((q, i) => {
-      const div = document.createElement("div");
-      div.className = "question";
-      div.innerHTML = `<h2>Q${i+1}. ${q.q}</h2>`;
+      const box = document.createElement("div");
+      box.className = "question-box";
 
-      q.options.forEach((opt, index) => {
+      const title = document.createElement("h2");
+      title.textContent = `${i + 1}. ${q.question}`;
+      box.appendChild(title);
+
+      q.answers.forEach((answer, index) => {
         const btn = document.createElement("button");
-        btn.textContent = opt;
+        btn.textContent = answer;
         btn.onclick = () => {
-          const allButtons = div.querySelectorAll("button");
-          allButtons.forEach(b => b.disabled = true);
-
-          if (index === q.answer) {
-            btn.classList.add("correct");
-          } else {
-            btn.classList.add("incorrect");
-            allButtons[q.answer].classList.add("correct");
+          const buttons = box.querySelectorAll("button");
+          buttons.forEach(b => b.disabled = true);
+          btn.classList.add(index === q.correct ? "correct" : "incorrect");
+          if (index !== q.correct) {
+            buttons[q.correct].classList.add("correct");
           }
         };
-        div.appendChild(btn);
+        box.appendChild(btn);
       });
 
-      quizContainer.appendChild(div);
+      container.appendChild(box);
     });
   </script>
 </body>
